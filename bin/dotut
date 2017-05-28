@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var program   = require('commander')
+  , tutorials = require('../index')
+
+var actionFn = function (filter, options) {
+  var successFn = function(response) {
+    response.body.hits.forEach(function(hit) {
+      console.log('\n')
+      console.log('Title:      ' + hit.title)
+      console.log('URL:        ' + hit.url)
+      console.log('Page Views: ' + hit.pageviews)
+    })
+  }
+
+  var errorFn = function(error) {
+    console.log(error)
+  }
+
+  var getTutorialsFn = function() {
+    var query = {}
+
+    query.per_page        = options.parent.perPage || 21
+    query.page            = options.parent.page || 1
+    query.q               = options.parent.keyword || ''
+    query.primary_filter  = filter
+
+    tutorials.get(query).then(successFn).catch(errorFn)
+  }
+
+  getTutorialsFn()
+}
+
+program
+  .version('0.0.1')
+  .usage('list <filter> [options]')
+  .description('List tutorials from Digital Ocean.')
+  .option('-p, --page <page>','page number')
+  .option('-n, --per-page <per_page>','number of results per page')
+  .option('-k, --keyword [keyword]','optional keyword to search')
+  .command('list <filter>')
+  .action(actionFn)
+
+program.parse(process.argv)
+
+if (!program.args.length) program.help()

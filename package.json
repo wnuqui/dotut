@@ -1,0 +1,36 @@
+{
+  "name": "dotut",
+  "version": "0.1.0",
+  "description": "List DO's community tutorials.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/gulp test"
+  },
+  "keywords": [
+    "cli",
+    "DO",
+    "digital-ocean",
+    "tutorials",
+    "list"
+  ],
+  "author": "Wilfrido T. Nuqui Jr.",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-mocha": "^4.3.1",
+    "gulp-util": "^3.0.8",
+    "mocha": "^3.4.2",
+    "mocha-junit-reporter": "^1.13.0",
+    "nock": "^9.0.13"
+  },
+  "bin": {
+    "dotut": "./bin/dotut"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "superagent": "^3.5.2"
+  }
+}
