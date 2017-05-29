@@ -34,7 +34,7 @@ var actionFn = function (options) {
 program
   .version('dotut version 0.0.2')
   .usage('list [options]')
-  .description('List tutorials from Digital Ocean.')
+  .description('List tutorials from Digital Ocean via CLI.')
 
   .option('-s, --sort-by <sort_by>',    'sort results (valid values are: newest, popular, trending, series)')
   .option('-p, --page <page>',          'page number')
