@@ -32,7 +32,7 @@ var actionFn = function (options) {
 }
 
 program
-  .version('dotut version 0.0.1')
+  .version('dotut version 0.0.2')
   .usage('list [options]')
   .description('List tutorials from Digital Ocean.')
 
