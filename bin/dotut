@@ -3,7 +3,7 @@
 var program   = require('commander')
   , tutorials = require('../index')
 
-var actionFn = function (filter, options) {
+var actionFn = function (options) {
   var successFn = function(response) {
     response.body.hits.forEach(function(hit) {
       console.log('\n')
@@ -22,8 +22,8 @@ var actionFn = function (filter, options) {
 
     query.per_page        = options.parent.perPage || 21
     query.page            = options.parent.page || 1
-    query.q               = options.parent.keyword || ''
-    query.primary_filter  = filter
+    query.q               = options.parent.query || ''
+    query.primary_filter  = options.parent.sortBy || 'newest'
 
     tutorials.get(query).then(successFn).catch(errorFn)
   }
@@ -32,13 +32,16 @@ var actionFn = function (filter, options) {
 }
 
 program
-  .version('0.0.1')
-  .usage('list <filter> [options]')
+  .version('dotut version 0.0.1')
+  .usage('list [options]')
   .description('List tutorials from Digital Ocean.')
-  .option('-p, --page <page>','page number')
-  .option('-n, --per-page <per_page>','number of results per page')
-  .option('-k, --keyword [keyword]','optional keyword to search')
-  .command('list <filter>')
+
+  .option('-s, --sort-by <sort_by>',    'sort results (valid values are: newest, popular, trending, series)')
+  .option('-p, --page <page>',          'page number')
+  .option('-n, --per-page <per_page>',  'number of results per page')
+  .option('-q, --query <query>',        'optional keyword to search')
+
+  .command('list')
   .action(actionFn)
 
 program.parse(process.argv)

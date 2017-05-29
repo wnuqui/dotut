@@ -10,22 +10,23 @@ CLI to list DO's tutorials
 ## Usage
 
 ```
-Usage: dotut list <filter> [options]
+Usage: dotut list [options]
 
 
   Commands:
 
-    list <filter>
+    list
 
   List tutorials from Digital Ocean.
 
   Options:
 
-    -h, --help                 output usage information
-    -V, --version              output the version number
-    -p, --page <page>          page number
-    -n, --per-page <per_page>  number of results per page
-    -k, --keyword [keyword]    optional keyword to search
+    -h, --help                  output usage information
+    -V, --version               output the version number
+    -s, --sort-by <sort_by>     sort results (valid values are: newest, popular, trending, series)
+    -p, --page <page>           page number
+    -n, --per-page <per_page>   number of results per page
+    -q, --query <query>         optional keyword to search
 ```
 
 ## In Action
