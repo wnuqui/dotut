@@ -1,5 +1,5 @@
 
-# dotut
+# dotut [![Build Status](https://semaphoreci.com/api/v1/wnuqui/dotut/branches/master/shields_badge.svg)](https://semaphoreci.com/wnuqui/dotut)
 
 CLI to list DO's tutorials
 
