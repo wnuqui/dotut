@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/gulp test",
-    "report-coverage": "./node_modules/.bin/codecov --token=061dd8e4-34b9-4e45-8546-bb1ec0c129b6"
+    "report-coverage": "./node_modules/.bin/codecov --token=CODECOV_TOKEN"
   },
   "keywords": [
     "cli",
