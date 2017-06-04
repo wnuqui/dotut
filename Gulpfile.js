@@ -16,9 +16,9 @@ gulp.task('pre-test', function () {
 
 gulp.task('test', ['lint', 'pre-test'], function () {
   return gulp.src(['test/**/*.js'], { read: false })
-    .pipe(mocha({ reporter: 'mocha-junit-reporter' }))
+    .pipe(mocha())
     // Creating the reports after tests ran
-    .pipe(istanbul.writeReports({reporters: ['text-summary', 'html', 'cobertura']}))
+    .pipe(istanbul.writeReports({reporters: ['lcov', 'text-summary', 'html']}))
     // Enforce a coverage of at least 90%
     .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }))
     .on('error', util.log)
