@@ -7,7 +7,7 @@ var gulp      = require('gulp')
   , eslint    = require('gulp-eslint')
 
 gulp.task('pre-test', function () {
-  return gulp.src(['index.js'])
+  return gulp.src(['src/**/*.js'])
     // Covering files
     .pipe(istanbul())
     // Force `require` to return covered files
@@ -19,13 +19,13 @@ gulp.task('test', ['lint', 'pre-test'], function () {
     .pipe(mocha())
     // Creating the reports after tests ran
     .pipe(istanbul.writeReports({reporters: ['lcov', 'text-summary', 'html']}))
-    // Enforce a coverage of at least 90%
-    .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }))
+    // Enforce a coverage of at least 95%
+    .pipe(istanbul.enforceThresholds({ thresholds: { global: 95 } }))
     .on('error', util.log)
 })
 
 gulp.task('watch-test', function () {
-  gulp.watch(['index.js', 'test/**'], ['test'])
+  gulp.watch(['src/**/*.js', 'test/**'], ['test'])
 })
 
 gulp.task('lint', function () {
