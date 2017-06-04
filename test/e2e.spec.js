@@ -2,7 +2,6 @@
 /*eslint no-console: 0*/
 
 var expect        = require('chai').expect
-  , tutorials     = require('../src/index')
   , convert       = require('../src/cli/commands/convert')
   , nock          = require('nock')
   , responseBody  = require(__dirname + '/replies/200.json')
@@ -13,7 +12,7 @@ var unhookIntercept = intercept(function(text) {
   stdoutText += text
 })
 
-describe('tutorials.get()', function() {
+describe('convert()', function() {
   context('e2e', function() {
     context('success', function() {
       beforeEach(function () {
@@ -24,14 +23,6 @@ describe('tutorials.get()', function() {
            })
 
         stdoutText = ''
-      })
-
-      it('requests successfully', function() {
-        var options = {"parent": {}}
-
-        return tutorials.get(options).then(function(res) {
-          expect(res.statusCode).to.eq(200)
-        })
       })
 
       it('prints results to STDOUT', function() {
