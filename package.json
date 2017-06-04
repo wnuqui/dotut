@@ -24,6 +24,7 @@
     "gulp-istanbul": "^1.1.1",
     "gulp-mocha": "3.0.1",
     "gulp-util": "^3.0.8",
+    "intercept-stdout": "0.1.2",
     "mocha": "^3.4.2",
     "nock": "^9.0.13"
   },
